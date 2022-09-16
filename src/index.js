@@ -11,17 +11,21 @@ const client = new Client({
   partials: [Partials.Channel],
 });
 const baseUrl = process.env.LAMBDA_INVOKE_PATH
+client.login(process.env.DISCORD_TOKEN)
 
 client.once("ready", async () => {
   console.log("Ready!");
 })
 
 client.on('messageCreate', message => {
-
   console.log("message:"+message.content);
 
-  if (message.author.bot) { // 1
+  if (message.author.bot) {
     return;
+  }
+
+  if (message.content === '!mcusage') {
+      message.reply('!mcstart : サーバー起動 \n!mcstop : サーバー停止')
   }
 
   // 起動
@@ -47,5 +51,3 @@ client.on('messageCreate', message => {
 }
 
 })
-
-client.login(process.env.DISCORD_TOKEN)
