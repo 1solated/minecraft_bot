@@ -25,7 +25,7 @@ client.on('messageCreate', message => {
   }
 
   if (message.content === '!mcusage') {
-      message.reply('!mcstart : サーバー起動！！ \n!mcstop : サーバー停止！！')
+      message.reply('!mcstart : サーバー起動 \n!mcstop : サーバー停止')
   }
 
   // 起動
